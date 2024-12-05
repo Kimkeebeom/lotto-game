@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #fff;
+    }
+
+    .lotto-container {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .lotto-result {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .lotto-number {
+        width: 60px;
+        height: 60px;
+        background: #ffd700;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .generate-btn {
+        background: #ff4500;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
+    }
+
+    .generate-btn:hover {
+        background: #ff6347;
+    }
+</style>
+</head>
+<body>
+    <div class="lotto-container">
+        <h1>🎉 로또 번호 추천 🎉</h1>
+        <div class="lotto-result">
+            <span class="lotto-number" id="num1">--</span>
+            <span class="lotto-number" id="num2">--</span>
+            <span class="lotto-number" id="num3">--</span>
+            <span class="lotto-number" id="num4">--</span>
+            <span class="lotto-number" id="num5">--</span>
+            <span class="lotto-number" id="num6">--</span>
+        </div>
+        <button class="generate-btn" onclick="generateLottoNumbers()">번호 추천받기</button>
+    </div>
+    <script>
+    const lottoNumbers = [
+        34, 43, 27, 17, 1, 12, 13, 7, 9, 19, 22, 23, 25, 32, 42, 44, 45
+    ];
+
+    function generateLottoNumbers() {
+        const selectedNumbers = [];
+        while (selectedNumbers.length < 6) {
+            const randomIndex = Math.floor(Math.random() * lottoNumbers.length);
+            const number = lottoNumbers[randomIndex];
+            if (!selectedNumbers.includes(number)) {
+                selectedNumbers.push(number);
+            }
+        }
+
+        selectedNumbers.sort((a, b) => a - b); 
+        for (let i = 0; i < 6; i++) {
+            document.getElementById(`num${i + 1}`).textContent = selectedNumbers[i];
+        }
+    }
+    </script>
+</body>
+</html>
