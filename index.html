@@ -22,7 +22,7 @@
     <meta name="twitter:description" content="로또 번호 분석 기반 추천! 재미로 해보세요!">
     <meta name="twitter:image" content="https://keebeomkim.github.io/lotto-game/lotto-preview.jpg">
 <style>
-    body {
+     body {
         font-family: Arial, sans-serif;
         background: linear-gradient(120deg, #ff9a9e, #fad0c4);
         margin: 0;
@@ -39,29 +39,32 @@
         padding: 20px;
         border-radius: 15px;
         box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        width: 90%; /* 모바일에서 더 잘 보이도록 조정 */
+        max-width: 400px; /* 데스크톱에서 너무 커지지 않도록 제한 */
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
         margin-bottom: 20px;
     }
 
     .lotto-result {
         display: flex;
         justify-content: center;
-        gap: 15px;
+        gap: 10px;
         margin: 20px 0;
+        flex-wrap: wrap; /* 작은 화면에서 번호가 자동으로 줄 바꿈되도록 설정 */
     }
 
     .lotto-number {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         background: #ffd700;
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: bold;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     }
@@ -79,6 +82,42 @@
 
     .generate-btn:hover {
         background: #ff6347;
+    }
+
+    /* 반응형 디자인: 화면 크기 768px 이하 */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        .lotto-number {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+
+        .generate-btn {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+    }
+
+    /* 반응형 디자인: 화면 크기 480px 이하 */
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 1.2rem;
+        }
+
+        .lotto-number {
+            width: 35px;
+            height: 35px;
+            font-size: 0.9rem;
+        }
+
+        .generate-btn {
+            padding: 6px 12px;
+            font-size: 0.8rem;
+        }
     }
 </style>
 </head>
